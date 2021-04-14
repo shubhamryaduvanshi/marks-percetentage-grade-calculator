@@ -9,38 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    
-    <script>
-        function results(){
-        var a=parseInt(document.getElementById("value1").value);
-        var b=parseInt(document.getElementById("value2").value);
-        var c=parseInt(document.getElementById("value3").value);
-        var d=parseInt(document.getElementById("value4").value);
-        var e=parseInt(document.getElementById("value5").value);
-        var total=a+b+c+d+e;
-        var percentage=total/500*100;
-        var grade;
-        if(percentage>=80 && percentage<100){
-            grade="Outstanding";
-        } else if(percentage>=60 && percentage<80){
-            grade="A";
-        }else if(percentage>=50 && percentage<60){
-            grade="B";
-        }
-        else if(percentage>=40 && percentage<50){
-            grade="C";
-        }
-        else if(percentage>=33 && percentage<40){
-            grade="D";
-        }
-        else if(percentage>=0 && percentage<33){
-            grade="FAIL";
-        }
-        alert("MARKS OBTAINED: "+ total+ "  PERCENTAGE: "+percentage +" GRADE: "+grade);
-        document.getElementById("result").value=total;
-        }
-    </script>
-
 
 </head>
 <body>
@@ -52,10 +20,44 @@
         <input type="text" class="input-get" id="value3" placeholder="MySQL Marks"><br>
         <input type="text" class="input-get" id="value4" placeholder="C Marks"><br>
         <input type="text" class="input-get" id="value5" placeholder="C# Marks"><br>
-       <button id="btn-get" onclick="results();">CALCULATE</button> 
+       <button id="btn-get" onclick="results()">CALCULATE</button> 
     </div>
     <div id="result" class="resultview"></div>
 </div>
+
+    
+<script>
+    function results(){
+    var a=parseInt(document.getElementById("value1").value);
+    var b=parseInt(document.getElementById("value2").value);
+    var c=parseInt(document.getElementById("value3").value);
+    var d=parseInt(document.getElementById("value4").value);
+    var e=parseInt(document.getElementById("value5").value);
+    var total=a+b+c+d+e;
+    var percentage=total/500*100;
+    var grade;
+    if(percentage>=80 && percentage<100){
+        grade="Outstanding";
+    } else if(percentage>=60 && percentage<80){
+        grade="A";
+    }else if(percentage>=50 && percentage<60){
+        grade="B";
+    }
+    else if(percentage>=40 && percentage<50){
+        grade="C";
+    }
+    else if(percentage>=33 && percentage<40){
+        grade="D";
+    }
+    else if(percentage>=0 && percentage<33){
+        grade="FAIL";
+    }
+    document.getElementById("result").innerHTML=`Out of 500 you got<b> ${total} </b><br> Your Percentage : <b>${percentage}</b> <br> Grade : <b>${grade}</b>`; 
+    document.getElementById("result").style.textAlign = "center";    
+}
+   
+
+</script>
 
 </body>
 </html>
